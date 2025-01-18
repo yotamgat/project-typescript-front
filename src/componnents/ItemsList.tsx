@@ -1,7 +1,7 @@
 import  { useState,FC } from 'react';
-import PostListStyle from './PostList.module.css';
+import ItemsListStyle from './ItemsList.module.css';
 
-interface PostsListProps {
+interface ItemsListProps {
 
   // Add props here
   title: string;
@@ -9,7 +9,7 @@ interface PostsListProps {
   onItemSelected: (index: number) => void;
 }
 
-const PostsList:FC<PostsListProps>=({title,items,onItemSelected})=> { 
+const ItemsList:FC<ItemsListProps>=({title,items,onItemSelected})=> { 
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [render,setRender] = useState(0);
@@ -35,7 +35,7 @@ const PostsList:FC<PostsListProps>=({title,items,onItemSelected})=> {
   }
   
   return (
-    <div className={PostListStyle.container}>
+    <div className={ItemsListStyle.container}>
       <h1>{title}</h1>
       { items.length === 0 ? <p>No items</p> : //if items is empty, display "No items", else display the list
         <ul className="list-group">
@@ -57,5 +57,5 @@ const PostsList:FC<PostsListProps>=({title,items,onItemSelected})=> {
   
 }
 
-export default PostsList;
+export default ItemsList;
  
